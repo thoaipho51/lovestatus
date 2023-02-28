@@ -8,7 +8,12 @@ class CardLoveStatus extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-      
+    List<String> time =
+        loveStatus!.time.split(' '); // Tách chuỗi theo khoảng trắng
+    print(time[0]);
+    // String part1 = parts[0]; // Lấy phần tử thứ nhất của mảng kết quả
+    // String part2 = parts[1]; // Lấy phần tử thứ hai của mảng kết quả
+
     return Padding(
       padding: EdgeInsets.only(top: 10),
       child: Card(
@@ -22,23 +27,21 @@ class CardLoveStatus extends StatelessWidget {
           ),
           title: Text('${loveStatus.name}'),
           subtitle: Text(
-            'Thời gian: ${loveStatus.time}',
+            'Thời gian: ${time[0]}',
             style: TextStyle(fontSize: 15),
           ),
           hoverColor: Colors.amberAccent,
           onTap: () {
-          
-
             // Hiển thị hộp thoại chứa thời gian
             showDialog(
               context: context,
               builder: (BuildContext context) {
                 return AlertDialog(
-                  title: Text('Dòng Thời Gian'),
+                  title: Text('Dòng Thời Gian: ${time[1]}'),
                   content: Text(loveStatus.love),
                   actions: [
                     ElevatedButton(
-                      style: ElevatedButton.styleFrom(
+                        style: ElevatedButton.styleFrom(
                             primary: Colors.pinkAccent,
                             elevation: 0,
                             textStyle: TextStyle(color: Colors.pinkAccent),
@@ -47,9 +50,7 @@ class CardLoveStatus extends StatelessWidget {
                                     color: Colors.pinkAccent, width: 2),
                                 borderRadius: BorderRadius.circular(10))),
                         onPressed: () async {
-                          
-                        Navigator.of(context).pop(); // Đóng hộp thoại
-                          
+                          Navigator.of(context).pop(); // Đóng hộp thoại
                         },
                         child: Text('Đã đọc <3')),
                   ],

@@ -54,12 +54,11 @@ class _SignUpState extends State<SignUp> {
         ],
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 40.0),
+        padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 40.0),
         child: Form(
             key: _formKey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-
               children: [
                 Expanded(
                   child: Transform.scale(
@@ -68,7 +67,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
                 SizedBox(
-                  height: 20.0,
+                  height: 10.0,
                 ),
                 TextFormField(
                   validator: (val) =>
@@ -117,17 +116,19 @@ class _SignUpState extends State<SignUp> {
                       }
                     },
                     child: Text('ĐĂNG KÝ')),
-                SizedBox(
-                  child: Padding(
-                      padding: EdgeInsets.all(20),
-                      child: Text(
-                        err,
-                        style: TextStyle(
-                          color: Colors.red,
-                          fontSize: 18,
-                        ),
-                        textAlign: TextAlign.center,
-                      )),
+                Expanded(
+                  child: SizedBox(
+                    child: Padding(
+                        padding: EdgeInsets.all(20),
+                        child: Text(
+                          err,
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 18,
+                          ),
+                          textAlign: TextAlign.center,
+                        )),
+                  ),
                 )
               ],
             )),

@@ -5,9 +5,12 @@ import 'package:intl/intl.dart'; // Import intl package
 
 
 DateTime date = DateTime.now(); // Lấy ngày của loveStatus
-String formattedDate = DateFormat('dd/MM/yyyy').format(date); // Định dạng ngày theo kiểu 'dd/MM/yyyy'
+String formattedDate = DateFormat('dd/MM/yyyy HH:mm:ss').format(date); // Định dạng ngày theo kiểu 'dd/MM/yyyy'
+
 
 class AuthService {
+  
+
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   //Hàm này chuyển dữ liệu trả về từ Firebase thành model của mình

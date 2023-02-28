@@ -8,9 +8,9 @@ import 'package:provider/provider.dart';
 import '../../shared/loading.dart';
 import 'package:intl/intl.dart'; // Import intl package
 
-
 DateTime date = DateTime.now(); // Lấy ngày của loveStatus
-String formattedDate = DateFormat('dd/MM/yyyy').format(date); // Định dạng ngày theo kiểu 'dd/MM/yyyy'
+String formattedDate = DateFormat('dd/MM/yyyy HH:mm:ss')
+    .format(date); // Định dạng ngày theo kiểu 'dd/MM/yyyy'
 
 class SettingsForm extends StatefulWidget {
   const SettingsForm({super.key});
@@ -37,6 +37,9 @@ class _SettingsFormState extends State<SettingsForm> {
             // ? ở đây để báo cho chương trình biết là snapshot.data có thể trả về giá trị null và biến data
             // có thể mang giá trị null
             UserData? data = snapshot.data;
+            
+           
+
             return Form(
                 key: _formKey,
                 child: Column(
