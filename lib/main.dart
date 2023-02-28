@@ -1,10 +1,9 @@
-// import 'package:firebase_app/models/user_model.dart';
-// import 'package:firebase_app/screens/wrapper.dart';
-// import 'package:firebase_app/services/auth.dart';
+import 'package:lovestatus/models/user_model.dart';
+import 'package:lovestatus/screens/wrapper.dart';
+import 'package:lovestatus/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:lovestatus/home.dart';
-// import 'package:provider/provider.dart';
+import 'package:provider/provider.dart';
 // import './models/user_model.dart';
 
 void main() async {
@@ -19,6 +18,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return Home();
+    return StreamProvider<UserModel?>.value(
+      value: AuthService().user,
+      catchError: (_,__) {},
+      initialData: null,
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Wrapper(),
+      ),
+    );
   }
 }
